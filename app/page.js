@@ -17,8 +17,8 @@ export default function HomePage() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Urbana High School Class of 2006 home">
-          <img className="brand__logo" src="/urbana-tigers-header-logo.png" alt="Urbana Tigers" />
-          <span><em>Class of 2006</em></span>
+          <img className="brand__logo" src="/urbana-tigers-header-logo-vertical.webp" alt="Urbana Tigers" />
+          <span><b>Urbana High School</b><em>Class of 2006</em></span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navLinks.map(([label, href]) => <a key={href} href={href}>{label}</a>)}

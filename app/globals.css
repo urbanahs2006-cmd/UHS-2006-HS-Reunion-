@@ -57,8 +57,9 @@ body::before {
   backdrop-filter: blur(10px);
 }
 .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; min-width: 0; }
-.brand .brand__logo { box-sizing: border-box; width: 184px; height: 58px; padding: 5px 9px; object-fit: contain; object-position: center; background: var(--cream); border: 1px solid rgba(255,255,255,.35); border-radius: 4px; }
+.brand .brand__logo { box-sizing: border-box; width: 48px; height: 60px; padding: 2px; object-fit: contain; object-position: center; background: var(--cream); border: 1px solid rgba(255,255,255,.35); border-radius: 4px; }
 .brand span { display: grid; text-transform: uppercase; line-height: 1.05; letter-spacing: .06em; }
+.brand b { font-family: var(--serif); font-size: 16px; }
 .brand em { font-family: var(--serif); font-style: normal; font-size: 22px; font-weight: 900; letter-spacing: .045em; }
 .desktop-nav { display: flex; align-items: center; gap: clamp(18px, 2vw, 38px); }
 .desktop-nav a { text-decoration: none; text-transform: uppercase; font-family: var(--condensed); font-weight: 900; font-size: 13px; letter-spacing: .08em; }
@@ -244,8 +245,9 @@ body::before {
 @media (max-width: 820px) {
   .page-shell, .narrow-shell { width: min(100% - 28px, 720px); }
   .site-header { min-height: 74px; padding: 8px 16px; }
-  .brand .brand__logo { width: 148px; height: 54px; padding: 5px 7px; }
-  .brand em { font-size: 17px; }
+  .brand .brand__logo { width: 43px; height: 54px; padding: 2px; }
+  .brand b { font-size: 13px; }
+  .brand em { font-size: 19px; }
   .desktop-nav { display: none; }
   .menu-button { display: grid; gap: 5px; padding: 10px; border: 0; background: transparent; cursor: pointer; }
   .menu-button span { width: 30px; height: 3px; background: var(--orange); }
@@ -312,9 +314,10 @@ body::before {
 
 @media (max-width: 540px) {
   .page-shell, .narrow-shell { width: min(100% - 20px, 520px); }
-  .brand { gap: 8px; }
-  .brand .brand__logo { width: 132px; height: 50px; }
-  .brand em { font-size: 15px; }
+  .brand { gap: 9px; }
+  .brand .brand__logo { width: 40px; height: 50px; }
+  .brand b { font-size: 12px; }
+  .brand em { font-size: 18px; }
   .hero__content { padding-top: 32px; }
   .hero h1 { font-size: min(21vw, 96px); }
   .hero h2 { gap: 8px; margin-top: 8px; font-size: clamp(28px, 7.7vw, 34px); white-space: nowrap; }
