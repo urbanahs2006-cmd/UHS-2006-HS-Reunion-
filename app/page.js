@@ -36,7 +36,11 @@ export default function HomePage() {
           <h2><span className="tiger-paw" aria-hidden="true" />Class of 2006<span className="tiger-paw" aria-hidden="true" /></h2>
           <p className="hero__tagline">One weekend. Countless memories.</p>
           <div className="hero__date">
-            <span className="calendar-icon" aria-hidden="true">▦</span>
+            <svg className="calendar-icon" viewBox="0 0 48 48" aria-hidden="true">
+              <rect x="6" y="9" width="36" height="33" rx="2" />
+              <path d="M15 5v9M33 5v9M6 19h36" />
+              <path d="M13 25h5M22 25h5M31 25h5M13 32h5M22 32h5M31 32h5" />
+            </svg>
             <div>
               <strong>{siteConfig.dateLabel}</strong>
               <span>{siteConfig.locationLabel}</span>
