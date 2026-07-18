@@ -33,7 +33,7 @@ export default function HomePage() {
         <div className="hero__content page-shell">
           <p className="script-label">20-Year</p>
           <h1>Reunion</h1>
-          <h2><span aria-hidden="true">🐾</span>Class of 2006<span aria-hidden="true">🐾</span></h2>
+          <h2><span className="tiger-paw" aria-hidden="true" />Class of 2006<span className="tiger-paw" aria-hidden="true" /></h2>
           <p className="hero__tagline">One weekend. Countless memories.</p>
           <div className="hero__date">
             <span className="calendar-icon" aria-hidden="true">▦</span>
@@ -125,7 +125,7 @@ export default function HomePage() {
 
       <aside className="reunion-cta" aria-label="Reunion RSVP reminder">
         <div className="page-shell reunion-cta__inner">
-          <div className="footer-motto"><span aria-hidden="true">🐾</span><p><em>Once a Tiger,</em><strong>Always a Tiger.</strong></p></div>
+          <div className="footer-motto"><span className="tiger-paw tiger-paw--orange" aria-hidden="true" /><p><em>Once a Tiger,</em><strong>Always a Tiger.</strong></p></div>
           <a className="button button--orange" href="#rsvp">RSVP Now <span aria-hidden="true">›</span></a>
         </div>
       </aside>
@@ -190,7 +190,7 @@ export default function HomePage() {
 
       <footer className="site-footer">
         <div className="page-shell footer-inner">
-          <div className="footer-motto"><span aria-hidden="true">🐾</span><p><em>Once a Tiger,</em><strong>Always a Tiger.</strong></p></div>
+          <div className="footer-motto"><span className="tiger-paw tiger-paw--cream" aria-hidden="true" /><p><em>Once a Tiger,</em><strong>Always a Tiger.</strong></p></div>
           <a className="button button--orange" href="#rsvp">RSVP Now</a>
           <p>Urbana High School · Class of 2006<br />20 years strong. A lifetime of memories.</p>
         </div>
