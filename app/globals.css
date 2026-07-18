@@ -222,7 +222,15 @@ body::before {
 .footer-inner > p { margin: 0; text-align: right; text-transform: uppercase; font-family: var(--condensed); font-weight: 900; letter-spacing: .06em; }
 
 @media (min-width: 821px) {
-  .hero .script-label { margin-bottom: -8px; transform: translateY(-22px) rotate(-4deg); }
+  .hero__content { --hero-lockup-width: min(650px, 52vw); }
+  .hero .script-label { width: var(--hero-lockup-width); margin: 0 0 -8px; text-align: center; transform: translateY(-30px) rotate(-4deg); }
+  .hero h1 { width: var(--hero-lockup-width); text-align: center; }
+  .hero h2 { justify-content: space-between; width: var(--hero-lockup-width); margin: 12px 0; }
+  .hero__tagline { display: block; box-sizing: border-box; width: var(--hero-lockup-width); text-align: center; }
+  .hero__date { box-sizing: border-box; width: var(--hero-lockup-width); padding-inline: 10px; }
+  .hero__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: var(--hero-lockup-width); }
+  .hero__actions .button { position: relative; box-sizing: border-box; width: 100%; text-align: center; }
+  .hero__actions .button--orange span { position: absolute; right: 24px; }
 }
 
 @media (max-width: 1120px) {
