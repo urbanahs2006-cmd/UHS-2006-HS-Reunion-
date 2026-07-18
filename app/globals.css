@@ -222,7 +222,7 @@ body::before {
 .footer-inner > p { margin: 0; text-align: right; text-transform: uppercase; font-family: var(--condensed); font-weight: 900; letter-spacing: .06em; }
 
 @media (min-width: 821px) {
-  .hero__content { --hero-lockup-width: min(650px, 52vw); }
+  .hero__content { --hero-lockup-width: clamp(540px, 52vw, 650px); }
   .hero .script-label { width: var(--hero-lockup-width); margin: 0 0 -8px; text-align: center; transform: translateY(-30px) rotate(-4deg); }
   .hero h1 { width: var(--hero-lockup-width); text-align: center; }
   .hero h2 { justify-content: space-between; width: var(--hero-lockup-width); margin: 12px 0; }
