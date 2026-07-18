@@ -34,7 +34,7 @@ export default function Countdown({ target }) {
     <div className="countdown" aria-label="Countdown to the reunion">
       {units.map(([label]) => (
         <div className="countdown__unit" key={label}>
-          <strong>{String(time[label]).padStart(label === "days" ? 3 : 2, "0")}</strong>
+          <strong>{time[label]}</strong>
           <span>{label}</span>
         </div>
       ))}
