@@ -88,7 +88,9 @@ export default function HomePage() {
                   <em>{event.year}</em>
                 </div>
                 <div className="event-card__body">
-                  <div className="event-mark" aria-hidden="true">{event.mark}</div>
+                  <div className="event-mark" aria-hidden="true">
+                    <img src={event.icon} alt="" />
+                  </div>
                   <div className="event-card__content">
                     <p className="event-eyebrow">{event.eyebrow}</p>
                     <h3>{event.title}</h3>
