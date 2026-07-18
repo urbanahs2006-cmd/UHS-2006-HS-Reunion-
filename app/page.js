@@ -5,6 +5,7 @@ import AttendeeDirectory from "@/components/AttendeeDirectory";
 import { events, siteConfig } from "@/lib/site";
 
 const navLinks = [
+  ["Home", "#top"],
   ["Schedule", "#schedule"],
   ["Details", "#details"],
   ["Who's Coming", "#attendees"],
@@ -32,7 +33,7 @@ export default function HomePage() {
         <div className="hero__content page-shell">
           <p className="script-label">20-Year</p>
           <h1>Reunion</h1>
-          <h2>Class of 2006</h2>
+          <h2><span aria-hidden="true">🐾</span>Class of 2006<span aria-hidden="true">🐾</span></h2>
           <p className="hero__tagline">One weekend. Countless memories.</p>
           <div className="hero__date">
             <span className="calendar-icon" aria-hidden="true">▦</span>
@@ -121,6 +122,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <aside className="reunion-cta" aria-label="Reunion RSVP reminder">
+        <div className="page-shell reunion-cta__inner">
+          <div className="footer-motto"><span aria-hidden="true">🐾</span><p><em>Once a Tiger,</em><strong>Always a Tiger.</strong></p></div>
+          <a className="button button--orange" href="#rsvp">RSVP Now <span aria-hidden="true">›</span></a>
+        </div>
+      </aside>
 
       <section className="paper-section attendees-section" id="attendees">
         <div className="page-shell narrow-shell">
