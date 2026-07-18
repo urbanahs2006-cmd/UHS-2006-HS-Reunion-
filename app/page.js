@@ -17,8 +17,8 @@ export default function HomePage() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Urbana High School Class of 2006 home">
-          <img src="/tiger-logo.webp" alt="Urbana Tigers logo" />
-          <span><b>Urbana High School</b><em>Class of 2006</em></span>
+          <img className="brand__logo" src="/urbana-tigers-header-logo.png" alt="Urbana Tigers" />
+          <span><em>Class of 2006</em></span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navLinks.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
@@ -196,7 +196,7 @@ export default function HomePage() {
 
       <footer className="site-footer">
         <div className="page-shell footer-inner">
-          <div className="footer-motto"><span className="tiger-paw tiger-paw--cream" aria-hidden="true" /><p><em>Once a Tiger,</em><strong>Always a Tiger.</strong></p></div>
+          <div className="footer-motto"><img className="footer-logo" src="/urbana-tigers-footer-logo.webp" alt="Urbana Tigers" /><p><em>Once a Tiger,</em><strong>Always a Tiger.</strong></p></div>
           <a className="button button--orange" href="#rsvp">RSVP Now</a>
           <p>Urbana High School · Class of 2006<br />20 years strong. A lifetime of memories.</p>
         </div>
