@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const units = [
   ["days", 1000 * 60 * 60 * 24],
@@ -22,10 +22,10 @@ function calculate(target) {
 }
 
 export default function Countdown({ target }) {
-  const initial = useMemo(() => calculate(target), [target]);
-  const [time, setTime] = useState(initial);
+  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
+    setTime(calculate(target));
     const timer = window.setInterval(() => setTime(calculate(target)), 1000);
     return () => window.clearInterval(timer);
   }, [target]);
