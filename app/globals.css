@@ -218,6 +218,10 @@ body::before {
 .footer-motto strong { text-transform: uppercase; font-family: var(--serif); font-size: 22px; }
 .footer-inner > p { margin: 0; text-align: right; text-transform: uppercase; font-family: var(--condensed); font-weight: 900; letter-spacing: .06em; }
 
+@media (min-width: 821px) {
+  .hero .script-label { margin-bottom: -8px; transform: translateY(-22px) rotate(-4deg); }
+}
+
 @media (max-width: 1120px) {
   .event-grid { grid-template-columns: repeat(2,1fr); }
   .detail-grid { grid-template-columns: 1fr; }
