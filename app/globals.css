@@ -57,7 +57,7 @@ body::before {
   backdrop-filter: blur(10px);
 }
 .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; min-width: 0; }
-.brand .brand__logo { box-sizing: border-box; width: 48px; height: 60px; padding: 2px; object-fit: contain; object-position: center; background: var(--cream); border: 1px solid rgba(255,255,255,.35); border-radius: 4px; }
+.brand .brand__logo { box-sizing: border-box; width: 48px; height: 60px; padding: 2px; object-fit: contain; object-position: center; background: #fff; border: 1px solid rgba(255,255,255,.35); border-radius: 4px; }
 .brand span { display: grid; text-transform: uppercase; line-height: 1.05; letter-spacing: .06em; }
 .brand b { font-family: var(--serif); font-size: 16px; }
 .brand em { font-family: var(--serif); font-style: normal; font-size: 22px; font-weight: 900; letter-spacing: .045em; }
@@ -217,7 +217,7 @@ body::before {
 .footer-inner .button--orange { background: transparent; border-color: white; }
 .footer-motto { display: flex; align-items: center; gap: 15px; }
 .footer-motto > .tiger-paw { width: 48px; height: 54px; }
-.footer-logo { box-sizing: border-box; width: 88px; height: 116px; padding: 5px; object-fit: contain; background: var(--cream); border: 1px solid rgba(255,255,255,.5); border-radius: 4px; filter: drop-shadow(0 3px 4px rgba(17,16,15,.22)); }
+.footer-logo { box-sizing: border-box; width: 88px; height: 116px; padding: 5px; object-fit: contain; background: #fff; border: 1px solid rgba(255,255,255,.5); border-radius: 4px; filter: drop-shadow(0 3px 4px rgba(17,16,15,.22)); }
 .footer-motto p { display: grid; margin: 0; line-height: 1; }
 .footer-motto em { font-family: var(--script); font-size: 34px; }
 .footer-motto strong { text-transform: uppercase; font-family: var(--serif); font-size: 22px; }
