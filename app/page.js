@@ -12,6 +12,33 @@ const navLinks = [
   ["FAQ", "#faq"],
 ];
 
+function DetailIcon({ type }) {
+  return (
+    <span className="detail-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        {type === "location" && (
+          <>
+            <circle cx="12" cy="12" r="5" />
+            <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
+          </>
+        )}
+        {type === "hotel" && (
+          <>
+            <rect x="5" y="5" width="14" height="14" rx="0.5" />
+            <rect x="8" y="8" width="8" height="8" rx="0.25" />
+          </>
+        )}
+        {type === "questions" && (
+          <>
+            <path d="M8.75 9.1a3.35 3.35 0 1 1 5.75 2.35c-1.55 1.35-2.5 1.9-2.5 3.3" />
+            <circle cx="12" cy="18" r="0.85" className="detail-icon__dot" />
+          </>
+        )}
+      </svg>
+    </span>
+  );
+}
+
 export default function HomePage() {
   return (
     <main>
@@ -121,9 +148,9 @@ export default function HomePage() {
               <span />
             </div>
             <div className="detail-list">
-              <div><b aria-hidden="true">⌖</b><p><strong>Location</strong><span>Events take place in Champaign and Urbana, Illinois.</span></p></div>
-              <div><b aria-hidden="true">▣</b><p><strong>Hotels</strong><span>Room blocks and hotel recommendations will be posted when available.</span></p></div>
-              <div><b aria-hidden="true">?</b><p><strong>Questions?</strong><span>Use the RSVP form to send a note to the reunion committee.</span></p></div>
+              <div><DetailIcon type="location" /><p><strong>Location</strong><span>Events take place in Champaign and Urbana, Illinois.</span></p></div>
+              <div><DetailIcon type="hotel" /><p><strong>Hotels</strong><span>Room blocks and hotel recommendations will be posted when available.</span></p></div>
+              <div><DetailIcon type="questions" /><p><strong>Questions?</strong><span>Use the RSVP form to send a note to the reunion committee.</span></p></div>
             </div>
           </div>
         </div>

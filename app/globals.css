@@ -155,10 +155,12 @@ body::before {
 .detail-list > div { display: grid; grid-template-columns: 42px 1fr; gap: 12px; padding: 12px 22px; border-right: 1px solid var(--line); }
 .detail-list > div:first-child { padding-left: 0; }
 .detail-list > div:last-child { padding-right: 0; border-right: 0; }
-.detail-list b { width: 36px; height: 36px; display: grid; place-items: center; color: var(--cream); background: var(--black); border-radius: 50%; font-style: normal; }
+.detail-icon { width: 36px; height: 36px; display: grid; place-items: center; color: var(--cream); background: var(--black); border-radius: 50%; }
+.detail-icon svg { display: block; width: 22px; height: 22px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.detail-icon .detail-icon__dot { fill: currentColor; stroke: none; }
 .detail-list p { margin: 0; display: grid; gap: 4px; }
 .detail-list strong { text-transform: uppercase; font-family: var(--serif); }
-.detail-list span { color: #50483f; font-size: 14px; }
+.detail-list p span { color: #50483f; font-size: 14px; }
 
 .attendees-section { padding: 70px 0 78px; }
 .section-intro { max-width: 720px; margin: -6px auto 30px; text-align: center; color: var(--muted); }
