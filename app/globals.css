@@ -81,11 +81,11 @@ body::before {
 .tiger-paw--orange { color: var(--orange); }
 .tiger-paw--cream { color: var(--cream); }
 .hero__tagline { display: inline-block; margin: 2px 0 22px; padding: 8px 34px; color: white; background: var(--black); text-transform: uppercase; font-family: var(--condensed); font-weight: 900; letter-spacing: .14em; clip-path: polygon(4% 0,96% 0,100% 50%,96% 100%,4% 100%,0 50%); }
-.hero__date { display: flex; align-items: center; gap: 14px; margin-top: 4px; }
-.calendar-icon { width: 46px; height: 46px; flex: 0 0 auto; color: var(--orange); fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-.hero__date div { display: grid; text-transform: uppercase; }
-.hero__date strong { font-family: var(--serif); font-size: clamp(25px, 2.5vw, 38px); line-height: 1.15; letter-spacing: .025em; }
-.hero__date span:not(.calendar-icon) { color: var(--orange-dark); font-family: var(--condensed); font-size: 18px; font-weight: 900; letter-spacing: .08em; }
+.hero__date { display: grid; width: max-content; gap: 5px; margin-top: 4px; text-transform: uppercase; }
+.hero__date-row { display: flex; align-items: center; gap: 12px; font-size: clamp(25px, 2.5vw, 38px); }
+.calendar-icon { width: 1em; height: 1em; flex: 0 0 auto; color: var(--orange); fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.hero__date strong { font-family: var(--serif); font-size: inherit; line-height: 1; letter-spacing: .025em; }
+.hero__date > span { justify-self: center; color: var(--orange-dark); font-family: var(--condensed); font-size: 18px; font-weight: 900; letter-spacing: .08em; text-align: center; }
 .hero__actions { display: flex; gap: 16px; margin-top: 25px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 20px; min-height: 48px; padding: 12px 28px; border: 2px solid transparent; text-decoration: none; text-transform: uppercase; font-family: var(--serif); font-weight: 900; letter-spacing: .04em; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
 .button:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.18); }
@@ -325,8 +325,8 @@ body::before {
   .hero h2 { gap: 8px; margin-top: 8px; font-size: clamp(28px, 7.7vw, 34px); white-space: nowrap; }
   .hero h2 .tiger-paw { width: .58em; height: .58em; }
   .hero__tagline { padding-inline: 22px; }
-  .hero__date { gap: 8px; }
-  .calendar-icon { width: 36px; height: 36px; }
+  .hero__date-row { gap: 8px; }
+  .calendar-icon { width: .88em; height: .88em; }
   .hero__actions { display: grid; grid-template-columns: 1fr; }
   .button { width: 100%; }
   .countdown__unit { padding-inline: 5px; }
