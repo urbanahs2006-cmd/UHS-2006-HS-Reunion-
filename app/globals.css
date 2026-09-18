@@ -347,6 +347,24 @@ body::before {
   .reunion-cta .button { width: 100%; min-width: 0; }
 }
 
+.instagram-section { padding: 64px 0; }
+.instagram-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin: 24px 0; }
+.instagram-controls { display: flex; gap: 8px; }
+.instagram-controls button { min-width: 44px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--black); border-radius: 3px; background: transparent; color: var(--black); cursor: pointer; font: inherit; font-weight: 700; }
+.instagram-controls button:hover { background: var(--black); color: white; }
+.instagram-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 20px; }
+.instagram-post { flex: 0 0 min(320px, 80vw); scroll-snap-align: start; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: #fffaf2; color: var(--black); text-decoration: none; }
+.instagram-image { position: relative; aspect-ratio: 1; background: #e8dfd0; }
+.instagram-image img { object-fit: cover; }
+.instagram-post-type { position: absolute; bottom: 12px; left: 12px; padding: 6px 10px; background: var(--black); color: white; font-size: 12px; }
+.instagram-caption { padding: 18px; }
+.instagram-caption p { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin: 8px 0 16px; font-size: 14px; white-space: pre-line; overflow-wrap: anywhere; }
+.instagram-caption > span { color: var(--orange-dark); font-size: 14px; font-weight: 700; }
+.instagram-invite { text-align: center; padding: 30px 20px; border: 1px solid var(--line); border-radius: 4px; background: rgba(255,255,255,.3); }
+.instagram-invite p { margin-top: 0; }
+.instagram-invite .button { max-width: 100%; min-width: 0; white-space: normal; }
+.instagram-track:focus-visible, .instagram-controls button:focus-visible, .instagram-post:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }

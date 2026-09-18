@@ -2,6 +2,7 @@ import Countdown from "@/components/Countdown";
 import MobileNav from "@/components/MobileNav";
 import RsvpForm from "@/components/RsvpForm";
 import AttendeeDirectory from "@/components/AttendeeDirectory";
+import InstagramWall from "@/components/InstagramWall";
 import { events, siteConfig } from "@/lib/site";
 
 const navLinks = [
@@ -177,6 +178,8 @@ export default function HomePage() {
           <AttendeeDirectory />
         </div>
       </section>
+
+      <InstagramWall />
 
       <section className="rsvp-section" id="rsvp">
         <div className="page-shell rsvp-layout">
