@@ -211,7 +211,7 @@ export default function HomePage() {
             </details>
             <details>
               <summary>What are the school tour details?</summary>
-              <p>The Urbana High School tour will take place on <strong>Saturday, September 26 at 2:00 PM</strong> and will be led by our very own <strong>Zachary Sutton</strong>!</p>
+              <p>The Urbana High School tour will take place on <strong>Saturday, September 26 at 2:00 PM</strong> and will be led by our very own <strong>Zak Sutton</strong>!</p>
               <p>Please meet at <strong>Door 1</strong> before the tour begins. All school entrances are numbered, and Door 1 should be easy to spot — just look for the <strong>large “U” window graphic</strong>.</p>
               <p>We recommend arriving a few minutes early so the group can get started together.</p>
             </details>
