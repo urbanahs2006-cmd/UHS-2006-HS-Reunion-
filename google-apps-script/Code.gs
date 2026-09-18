@@ -10,7 +10,7 @@ const HEADERS = [
   'Friday Esquire',
   'Saturday School Tour',
   'Saturday Riggs',
-  'Cowboy Monkey',
+  'Rose Bowl Tavern',
   'Guest Count',
   'Guest Names',
   'Current City/State',

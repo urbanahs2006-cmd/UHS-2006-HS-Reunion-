@@ -6,7 +6,8 @@ const eventOptions = [
   ["fridayEsquire", "Friday night at Esquire"],
   ["schoolTour", "Saturday school tour and class photo"],
   ["saturdayRiggs", "Saturday night at Riggs"],
-  ["cowboyMonkey", "Optional Cowboy Monkey night out"],
+  // Preserve the existing RSVP field key for the deployed Google Sheets integration.
+  ["cowboyMonkey", "Optional Rose Bowl Tavern night out"],
 ];
 
 const initialStatus = { type: "idle", message: "" };
