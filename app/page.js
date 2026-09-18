@@ -210,8 +210,10 @@ export default function HomePage() {
               <p>Yes. Include the number and names of your guests on the RSVP form so the committee can plan accurately.</p>
             </details>
             <details>
-              <summary>When will school-tour details be available?</summary>
-              <p>The time and meeting location are still being coordinated. The website can be updated as soon as those details are confirmed.</p>
+              <summary>What are the school tour details?</summary>
+              <p>The Urbana High School tour will take place on <strong>Saturday, September 26 at 2:00 PM</strong> and will be led by our very own <strong>Zachary Sutton</strong>!</p>
+              <p>Please meet at <strong>Door 1</strong> before the tour begins. All school entrances are numbered, and Door 1 should be easy to spot — just look for the <strong>large “U” window graphic</strong>.</p>
+              <p>We recommend arriving a few minutes early so the group can get started together.</p>
             </details>
             <details>
               <summary>Can I change my RSVP?</summary>
