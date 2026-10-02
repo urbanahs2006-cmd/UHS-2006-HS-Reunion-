@@ -10,8 +10,8 @@ export default function HomePage() {
         <strong>URBANA <span style={{color: "#ed6b32"}}>/</span> CLASS OF 2006</strong>
         <nav>
           <a href="#memories">The memories</a>
-          <a href="#instagram">Social Wall</a>
           <a href="#next">What’s next</a>
+          <a href="#instagram">Social Wall</a>
           <a className="pill" href="#connect">Stay connected</a>
         </nav>
       </header>
@@ -46,7 +46,6 @@ export default function HomePage() {
           </div>
           <ReunionSlideshow />
         </section>
-        <InstagramWall />
         <section className="future" id="next">
           <div>
             <div className="tag">Looking ahead · 2031?</div>
@@ -62,6 +61,7 @@ export default function HomePage() {
               <br />Share it in the optional note below.</p>
           </aside>
         </section>
+        <InstagramWall />
         <section className="connect" id="connect">
           <article>
             <div className="tag">For every member of the class</div>
