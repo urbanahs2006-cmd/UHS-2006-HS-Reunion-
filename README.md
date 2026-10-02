@@ -10,7 +10,7 @@ Post-reunion website built with Next.js, featuring:
 
 ## Local development
 
-Use Node.js 20.9 or newer:
+Use Node.js 24:
 
 ```sh
 npm install
