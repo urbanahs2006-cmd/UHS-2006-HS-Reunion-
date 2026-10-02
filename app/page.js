@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
+import InstagramWall from "@/components/InstagramWall";
 import ReunionSlideshow from "@/components/ReunionSlideshow";
 
 export default function HomePage() {
@@ -9,6 +10,7 @@ export default function HomePage() {
         <strong>URBANA <span style={{color: "#ed6b32"}}>/</span> CLASS OF 2006</strong>
         <nav>
           <a href="#memories">The memories</a>
+          <a href="#instagram">Social Wall</a>
           <a href="#next">What’s next</a>
           <a className="pill" href="#connect">Stay connected</a>
         </nav>
@@ -44,6 +46,7 @@ export default function HomePage() {
           </div>
           <ReunionSlideshow />
         </section>
+        <InstagramWall />
         <section className="future" id="next">
           <div>
             <div className="tag">Looking ahead · 2031?</div>

@@ -50,14 +50,12 @@ export default function InstagramWall() {
   }, [playing, interacting, posts.length]);
 
   return (
-    <section className="paper-section instagram-section" id="instagram" aria-labelledby="instagram-heading">
-      <div className="page-shell">
-        <div className="section-heading">
-          <span />
-          <div><p className="section-kicker">Once a Tiger, always a Tiger</p><h2 id="instagram-heading">Follow the Reunion</h2></div>
-          <span />
+    <section className="instagram-section" id="instagram" aria-labelledby="instagram-heading">
+      <div className="instagram-shell">
+        <div className="sectionhead">
+          <div><p className="tag">Once a Tiger, always a Tiger</p><h2 id="instagram-heading">Social Wall</h2></div>
         </div>
-        <p className="section-intro">Memories, familiar faces, and the countdown to our reunion.</p>
+        <p className="instagram-intro">Reunion memories, familiar faces, and the latest from our class.</p>
         <div className="instagram-toolbar">
           <a className="text-link" href={instagramProfile} target="_blank" rel="noreferrer">@uhstigers2006 <span aria-hidden="true">↗</span></a>
           {posts.length > 1 && <div className="instagram-controls" aria-label="Instagram carousel controls">
@@ -77,7 +75,7 @@ export default function InstagramWall() {
           </a>)}
         </div> : <div className="instagram-invite">
           <p>Catch up with the Class of 2006 on Instagram.</p>
-          <a className="button button--orange" href={instagramProfile} target="_blank" rel="noreferrer">Visit @uhstigers2006 <span aria-hidden="true">↗</span></a>
+          <a className="pill" href={instagramProfile} target="_blank" rel="noreferrer">Visit @uhstigers2006 <span aria-hidden="true">↗</span></a>
         </div>}
       </div>
     </section>
