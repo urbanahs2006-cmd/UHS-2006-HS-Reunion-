@@ -1,238 +1,81 @@
-import Countdown from "@/components/Countdown";
-import MobileNav from "@/components/MobileNav";
-import RsvpForm from "@/components/RsvpForm";
-import AttendeeDirectory from "@/components/AttendeeDirectory";
-import InstagramWall from "@/components/InstagramWall";
-import { events, siteConfig } from "@/lib/site";
-
-const navLinks = [
-  ["Home", "#top"],
-  ["Schedule", "#schedule"],
-  ["Details", "#details"],
-  ["Who's Coming", "#attendees"],
-  ["FAQ", "#faq"],
-];
-
-function DetailIcon({ type }) {
-  return (
-    <span className="detail-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        {type === "location" && (
-          <>
-            <circle cx="12" cy="12" r="5" />
-            <path d="M12 3v4M12 17v4M3 12h4M17 12h4" />
-          </>
-        )}
-        {type === "hotel" && (
-          <>
-            <rect x="5" y="5" width="14" height="14" rx="0.5" />
-            <rect x="8" y="8" width="8" height="8" rx="0.25" />
-          </>
-        )}
-        {type === "questions" && (
-          <>
-            <path d="M8.75 9.1a3.35 3.35 0 1 1 5.75 2.35c-1.55 1.35-2.5 1.9-2.5 3.3" />
-            <circle cx="12" cy="18" r="0.85" className="detail-icon__dot" />
-          </>
-        )}
-      </svg>
-    </span>
-  );
-}
+import Image from "next/image";
+import ContactForm from "@/components/ContactForm";
+import ReunionSlideshow from "@/components/ReunionSlideshow";
 
 export default function HomePage() {
   return (
-    <main>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="Urbana High School Class of 2006 home">
-          <img className="brand__logo" src="/urbana-tigers-header-logo-white.webp" alt="Urbana Tigers" />
-          <span><b>Urbana High School</b><em>Class of 2006</em></span>
-        </a>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          {navLinks.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
-          <a className="nav-rsvp" href="#rsvp">RSVP</a>
+    <>
+      <header>
+        <strong>URBANA <span style={{color: "#ed6b32"}}>/</span> CLASS OF 2006</strong>
+        <nav>
+          <a href="#memories">The memories</a>
+          <a href="#next">What’s next</a>
+          <a className="pill" href="#connect">Stay connected</a>
         </nav>
-        <MobileNav />
       </header>
-
-      <section className="hero" id="top">
-        <div className="hero__photo" aria-hidden="true" />
-        <div className="hero__wash" aria-hidden="true" />
-        <div className="hero__content page-shell">
-          <p className="script-label">20-Year</p>
-          <h1>Reunion</h1>
-          <h2><span className="tiger-paw" aria-hidden="true" />Class of 2006<span className="tiger-paw" aria-hidden="true" /></h2>
-          <p className="hero__tagline">One weekend. Countless memories.</p>
-          <div className="hero__date">
-            <div className="hero__date-row">
-              <svg className="calendar-icon" viewBox="0 0 48 48" aria-hidden="true">
-                <rect x="6" y="9" width="36" height="33" rx="2" />
-                <path d="M15 5v9M33 5v9M6 19h36" />
-                <path d="M13 25h5M22 25h5M31 25h5M13 32h5M22 32h5M31 32h5" />
-              </svg>
-              <strong>{siteConfig.dateLabel}</strong>
+      <main>
+        <div className="hero">
+          <article>
+            <div className="tag">20-year reunion · September 25 & 26, 2026</div>
+            <h1>Same Tigers.<br />New memories.<br />
+              <em>Thank you.</em>
+            </h1>
+            <p>Here’s to everyone who made our reunion weekend special—and to the classmates we hope to see next time.</p>
+            <div className="actions">
+              <a href="#memories" className="pill">Relive the weekend ↗</a>
+              <a href="#connect">Keep in touch →</a>
             </div>
-            <span>{siteConfig.locationLabel}</span>
-          </div>
-          <div className="hero__actions">
-            <a className="button button--orange" href="#rsvp">RSVP Now <span aria-hidden="true">›</span></a>
-            <a className="button button--outline" href="#schedule">View Schedule</a>
-          </div>
+          </article>
+          <figure>
+            <Image src="/urbana-high-school.webp" alt="Urbana High School building" fill priority sizes="(max-width: 700px) 100vw, 50vw" />
+          </figure>
         </div>
-      </section>
-
-      <section className="countdown-band" aria-labelledby="countdown-title">
-        <div className="page-shell countdown-band__inner">
+        <div className="band">
+          <b>Once a Tiger, always a Tiger.</b>
+          <span>Champaign & Urbana, Illinois · Twenty years of stories. More to come.</span>
+        </div>
+        <section id="memories">
+          <div className="sectionhead">
+            <div>
+              <div className="tag">The 20-year reunion album</div>
+              <h2>A weekend worth remembering.</h2>
+            </div>
+            <p>Old friends. Familiar places. A few new stories.<br />Our reunion photos, together in one place.</p>
+          </div>
+          <ReunionSlideshow />
+        </section>
+        <section className="future" id="next">
           <div>
-            <p className="section-kicker" id="countdown-title">Countdown to the reunion</p>
-            <Countdown target={siteConfig.countdownTarget} />
+            <div className="tag">Looking ahead · 2031?</div>
+            <h2>How about a 25-year reunion?</h2>
+            <p>No dates or plans just yet. Let us know if you’d like to get together again—and whether you’d like to help make it happen.</p>
+            <a href="#connect">Tell us what you think →</a>
           </div>
-          <div className="countdown-copy">
-            <p className="script-small">Coming together</p>
-            <p>It’s been 20 years since we walked these halls. Let’s celebrate the friendships, memories, and moments that last a lifetime.</p>
-            <strong>We can’t wait to see you!</strong>
-          </div>
-        </div>
-      </section>
-
-      <section className="paper-section schedule-section" id="schedule">
-        <div className="page-shell">
-          <div className="section-heading">
-            <span />
-            <div>
-              <p className="section-kicker">September 25 & 26</p>
-              <h2>Reunion Weekend at a Glance</h2>
+          <aside>
+            <h3>Keep the connection going.</h3>
+            <p>Made it to the reunion? Missed this one? Either way, you’re part of this class. Leave your current details so we can reach you about future gatherings.</p>
+            <p>
+              <strong>Have a favorite memory?</strong>
+              <br />Share it in the optional note below.</p>
+          </aside>
+        </section>
+        <section className="connect" id="connect">
+          <article>
+            <div className="tag">For every member of the class</div>
+            <h2>Let’s not wait<br />another 20 years.</h2>
+            <p>Keep your contact information up to date and help shape our next chapter.</p>
+            <div className="note">
+              <strong>Your details stay with the committee.</strong>
+              <p>Contact information won’t appear on this website. We’ll use it for class and reunion updates.</p>
             </div>
-            <span />
-          </div>
-
-          <div className="event-grid">
-            {events.map((event) => (
-              <article className="event-card" key={event.id}>
-                <div className="date-block">
-                  <span>{event.day}</span>
-                  <b>{event.month}</b>
-                  <strong>{event.date}</strong>
-                  <em>{event.year}</em>
-                </div>
-                <div className="event-card__body">
-                  <div className="event-mark" aria-hidden="true">
-                    <img src={event.icon} alt="" />
-                  </div>
-                  <div className="event-card__content">
-                    <p className="event-eyebrow">{event.eyebrow}</p>
-                    <h3>{event.title}</h3>
-                    <p className="event-meta"><span aria-hidden="true">◷</span>{event.time}</p>
-                    <p className="event-meta"><span aria-hidden="true">⌖</span>{event.city}</p>
-                    <p className="event-detail">{event.detail}</p>
-                    <a href={event.mapUrl} target="_blank" rel="noreferrer">View on map <span aria-hidden="true">↗</span></a>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="details-section" id="details">
-        <div className="page-shell detail-grid">
-          <div className="memory-card">
-            <p className="section-kicker">Once a Tiger, always a Tiger</p>
-            <h2>It’s been 20 years.<br /><span>Let’s make it unforgettable.</span></h2>
-            <p>Reconnect with old friends, walk the halls again, and celebrate where we’ve been and where we’re going.</p>
-            <a className="text-link" href="/reunion-flyer.jpeg" target="_blank">View the original reunion flyer <span>↗</span></a>
-          </div>
-          <div className="reunion-details">
-            <div className="section-heading section-heading--compact">
-              <span />
-              <h2>Reunion Details</h2>
-              <span />
-            </div>
-            <div className="detail-list">
-              <div><DetailIcon type="location" /><p><strong>Location</strong><span>Events take place in Champaign and Urbana, Illinois.</span></p></div>
-              <div><DetailIcon type="hotel" /><p><strong>Hotels</strong><span>Room blocks and hotel recommendations will be posted when available.</span></p></div>
-              <div><DetailIcon type="questions" /><p><strong>Questions?</strong><span>Use the RSVP form to send a note to the reunion committee.</span></p></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <aside className="reunion-cta" aria-label="Reunion RSVP reminder">
-        <div className="page-shell reunion-cta__inner">
-          <div className="footer-motto"><span className="tiger-paw tiger-paw--orange" aria-hidden="true" /><p><em>Once a Tiger,</em><strong>Always a Tiger.</strong></p></div>
-          <a className="button button--orange" href="#rsvp">RSVP Now <span aria-hidden="true">›</span></a>
-        </div>
-      </aside>
-
-      <section className="paper-section attendees-section" id="attendees">
-        <div className="page-shell narrow-shell">
-          <div className="section-heading">
-            <span />
-            <div>
-              <p className="section-kicker">The class is getting back together</p>
-              <h2>Who’s Coming</h2>
-            </div>
-            <span />
-          </div>
-          <p className="section-intro">Only classmates who opt in during RSVP will appear by name. Guest names and contact details remain private.</p>
-          <AttendeeDirectory />
-        </div>
-      </section>
-
-      <InstagramWall />
-
-      <section className="rsvp-section" id="rsvp">
-        <div className="page-shell rsvp-layout">
-          <div className="rsvp-copy">
-            <p className="script-label">Save your spot</p>
-            <h2>RSVP for the Reunion</h2>
-            <p>Tell us whether you’re coming and which events you’re interested in. You can submit again later with the same email address to update your response.</p>
-            <div className="rsvp-note">
-              <strong>No tickets required</strong>
-              <span>The Friday and Saturday evening events are free to attend; food and drinks are on your own tab.</span>
-            </div>
-          </div>
-          <RsvpForm />
-        </div>
-      </section>
-
-      <section className="paper-section faq-section" id="faq">
-        <div className="page-shell narrow-shell">
-          <div className="section-heading">
-            <span />
-            <div><p className="section-kicker">Good to know</p><h2>Frequently Asked Questions</h2></div>
-            <span />
-          </div>
-          <div className="faq-grid">
-            <details>
-              <summary>Is there a cost to attend?</summary>
-              <p>No. The Friday night and Saturday night gatherings have no admission charge. Food and drinks are purchased individually.</p>
-            </details>
-            <details>
-              <summary>Can I bring a guest?</summary>
-              <p>Yes. Include the number and names of your guests on the RSVP form so the committee can plan accurately.</p>
-            </details>
-            <details>
-              <summary>What are the school tour details?</summary>
-              <p>The Urbana High School tour will take place on <strong>Saturday, September 26 at 2:00 PM</strong> and will be led by our very own <strong>Zak Sutton</strong>!</p>
-              <p>Please meet at <strong>Door 1</strong> before the tour begins. All school entrances are numbered, and Door 1 should be easy to spot — just look for the <strong>large “U” window graphic</strong>.</p>
-              <p>We recommend arriving a few minutes early so the group can get started together.</p>
-            </details>
-            <details>
-              <summary>Can I change my RSVP?</summary>
-              <p>Yes. Submit the form again using the same email address. The Google Sheet will update your existing response.</p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <footer className="site-footer">
-        <div className="page-shell footer-inner">
-          <div className="footer-motto"><img className="footer-logo" src="/urbana-tigers-footer-logo-white.webp" alt="Urbana Tigers" /><p><em>Once a Tiger,</em><strong>Always a Tiger.</strong></p></div>
-          <a className="button button--orange" href="#rsvp">RSVP Now</a>
-          <p>Urbana High School · Class of 2006<br />20 years strong. A lifetime of memories.</p>
-        </div>
+          </article>
+          <ContactForm />
+        </section>
+      </main>
+      <footer>
+        <strong>Urbana High School · Class of 2006</strong>
+        <span>Different paths. Shared roots.</span>
       </footer>
-    </main>
+    </>
   );
 }

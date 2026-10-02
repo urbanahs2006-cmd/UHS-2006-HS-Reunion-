@@ -2,24 +2,24 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site";
 
 export const metadata = {
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL("https://www.uhs2006.com"),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.shortName}`,
   },
   description:
-    "Official reunion website for the Urbana High School Class of 2006, September 25–26, 2026, in Champaign and Urbana, Illinois.",
+    "Relive the Urbana High School Class of 2006 reunion, share your contact details, and help shape our next gathering.",
   openGraph: {
     title: siteConfig.name,
-    description: `${siteConfig.dateLabel} in ${siteConfig.locationLabel}`,
+    description: "Reunion memories, class updates, and our next chapter.",
     type: "website",
-    images: [{ url: "/opengraph-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/urbana-high-school.webp", alt: "Urbana High School" }],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
-    description: `${siteConfig.dateLabel} in ${siteConfig.locationLabel}`,
-    images: ["/opengraph-image.jpg"],
+    description: "Reunion memories, class updates, and our next chapter.",
+    images: ["/urbana-high-school.webp"],
   },
   manifest: "/site.webmanifest",
   icons: {

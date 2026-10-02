@@ -1,71 +1,36 @@
-# Urbana High School Class of 2006 Reunion Website
+# Urbana High School Class of 2006
 
-A mobile-first Next.js website ready to import into Vercel. It includes:
+Post-reunion website built with Next.js, featuring:
 
-- The real Urbana High School photo in the hero
-- Responsive vintage varsity styling inspired by the reunion flyer
-- A live countdown to September 25, 2026 at 5:00 PM Central Time
-- Reunion schedule and Google Maps search links
-- A custom RSVP form backed by Google Sheets and Apps Script
-- Duplicate RSVP updates by email address
-- An opt-in “Who’s Coming” list and live attendance totals
-- FAQ, reunion details, social sharing image, favicon, and mobile navigation
+- A thank-you homepage for the September 25–26, 2026 reunion
+- A Google Drive photo slideshow with manual navigation and optional play/pause
+- Contact details, preferred communication, 25-year reunion interest, and planning interest
+- An optional memory/suggestion field and contact consent
+- A new **Class Contacts** tab in the existing reunion spreadsheet; historical RSVPs remain intact
 
-## Local preview
+## Local development
 
-Requires Node.js 20.9 or newer.
+Use Node.js 20.9 or newer:
 
-```bash
+```sh
 npm install
 cp .env.example .env.local
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Set `GOOGLE_APPS_SCRIPT_URL` to the existing Apps Script web app URL. Without it, the six initial album photos remain available, but contact submissions return an unavailable message and are not saved.
 
-The website will run without the Google Apps Script URL, but RSVP submissions and live attendee data will remain disconnected until it is configured.
+## Activation
 
-## Connect Google Sheets
+Follow [the backend upgrade instructions](google-apps-script/README.md) before deploying the website. Committing the code does not update the Google-hosted Apps Script. The existing deployment must be upgraded for contact collection and automatic photo-folder refresh.
 
-Follow `google-apps-script/README.md`, then add the deployed Apps Script Web App URL to `.env.local`:
+The photo folder is configured in `google-apps-script/Code.gs` and `lib/reunion-photos.mjs`. The slideshow reads public-link-compatible images directly from Drive; no private contacts are exposed.
 
-```bash
-GOOGLE_APPS_SCRIPT_URL=https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec
+## Verification
+
+```sh
+node --test tests/contact.test.mjs
+npm run build
 ```
 
-## Deploy to Vercel
-
-1. Put all project files in the root of a GitHub repository.
-2. In Vercel, choose **Add New → Project** and import the repository.
-3. Vercel should detect **Next.js** automatically.
-4. Add `GOOGLE_APPS_SCRIPT_URL` under **Project Settings → Environment Variables**.
-5. Deploy.
-
-Each push to the connected production branch will trigger a fresh deployment.
-
-## Edit reunion content
-
-Most text, event details, map links, and dates are in:
-
-```text
-lib/site.js
-```
-
-Page content is in:
-
-```text
-app/page.js
-```
-
-Styling is in:
-
-```text
-app/globals.css
-```
-
-## Before launch
-
-- Confirm the venue names, times, and school-tour details.
-- Add the organizer email and Facebook URL in `lib/site.js` if desired.
-- Replace `https://example.com` in `app/layout.js` after your final domain is connected.
-- Test one RSVP on the deployed site and confirm it appears in the Google Sheet.
+Tests cover contact validation, separate-sheet append behavior, formula escaping, preservation of historical RSVPs, and public-photo filtering. A real Google save still requires an upgraded deployment and a live submission checked in the spreadsheet.

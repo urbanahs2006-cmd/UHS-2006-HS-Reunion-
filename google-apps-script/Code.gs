@@ -22,6 +22,7 @@ const HEADERS = [
 function doPost(e) {
   try {
     const payload = JSON.parse((e.postData && e.postData.contents) || '{}');
+    if (payload.action === 'contact') return saveContact_(payload);
     validatePayload_(payload);
 
     const lock = LockService.getScriptLock();
@@ -49,6 +50,7 @@ function doPost(e) {
 
 function doGet(e) {
   const action = (e && e.parameter && e.parameter.action) || 'health';
+  if (action === 'reunionPhotos') return getReunionPhotos_();
   if (action === 'publicAttendees') return getPublicAttendees_();
   return json_({ ok: true, service: 'UHS 2006 RSVP' });
 }
@@ -153,4 +155,63 @@ function json_(payload) {
   return ContentService
     .createTextOutput(JSON.stringify(payload))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+// Separate from the historical RSVP tab. Submissions are append-only so a public
+// form cannot overwrite another classmate's existing contact details by email.
+const CONTACT_HEADERS = ['Submitted At', 'First Name', 'Last Name', 'Email', 'Phone', 'Preferred Communication', '25-Year Reunion Interest', 'Planning Interest', 'Message', 'Contact Consent'];
+const REUNION_PHOTO_FOLDER_ID = '1-9s5h-EYjN9P47uSJYYAf_ywtwehYsaQ';
+
+function saveContact_(payload) {
+  const fields = { firstName: 80, lastName: 80, email: 180, phone: 40, preferredCommunication: 20, reunionInterest: 10, planningInterest: 10, message: 1500 };
+  Object.keys(fields).forEach(function(key) {
+    if (payload[key] != null && typeof payload[key] !== 'string') throw new Error('Invalid contact field.');
+    payload[key] = clean_(payload[key]);
+    if (payload[key].length > fields[key]) throw new Error('Contact field too long.');
+  });
+  if (!payload.firstName || !payload.lastName || !/^\S+@\S+\.\S+$/.test(payload.email)) throw new Error('Name and valid email are required.');
+  if (['email', 'text', 'phone'].indexOf(payload.preferredCommunication) < 0 || ['yes', 'maybe', 'no'].indexOf(payload.reunionInterest) < 0 || ['yes', 'maybe', 'no'].indexOf(payload.planningInterest) < 0) throw new Error('Invalid preferences.');
+  if ((payload.phone || payload.preferredCommunication !== 'email') && payload.phone.replace(/\D/g, '').length < 7) throw new Error('Valid phone number required.');
+  if (payload.consent !== true) throw new Error('Contact consent required.');
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    let sheet = spreadsheet.getSheetByName('Class Contacts');
+    if (!sheet) sheet = spreadsheet.insertSheet('Class Contacts');
+    if (sheet.getLastRow() === 0) {
+      sheet.getRange(1, 1, 1, CONTACT_HEADERS.length).setValues([CONTACT_HEADERS]).setFontWeight('bold').setBackground('#e8571b').setFontColor('#ffffff');
+      sheet.setFrozenRows(1);
+    }
+    const values = [payload.firstName, payload.lastName, payload.email.toLowerCase(), payload.phone, payload.preferredCommunication, payload.reunionInterest, payload.planningInterest, payload.message, 'Yes'];
+    // Force user-entered strings to remain text, including formula-like entries.
+    sheet.appendRow([new Date()].concat(values.map(sheetText_)));
+    return json_({ ok: true, saved: 'contact' });
+  } finally { lock.releaseLock(); }
+}
+
+function sheetText_(value) {
+  const text = String(value || '');
+  return /^[=+@-]/.test(text) ? "'" + text : text;
+}
+
+function getReunionPhotos_() {
+  try {
+    const folder = DriveApp.getFolderById(REUNION_PHOTO_FOLDER_ID);
+    const files = folder.getFiles();
+    const photos = [];
+    while (files.hasNext()) {
+      const file = files.next();
+      // Only publish browser-compatible images already available by link.
+      // This does not change any Drive permissions or expose private images.
+      if (['image/jpeg', 'image/png', 'image/webp', 'image/gif'].indexOf(file.getMimeType()) < 0) continue;
+      const access = file.getSharingAccess();
+      if (access !== DriveApp.Access.ANYONE && access !== DriveApp.Access.ANYONE_WITH_LINK) continue;
+      photos.push({ id: file.getId(), sortName: file.getName() });
+    }
+    photos.sort(function(a, b) { return a.sortName.localeCompare(b.sortName, undefined, { numeric: true }); });
+    return json_({ ok: true, photos: photos.map(function(photo) { return { id: photo.id }; }) });
+  } catch (error) {
+    return json_({ ok: false, error: 'Reunion photos are unavailable.' });
+  }
 }
