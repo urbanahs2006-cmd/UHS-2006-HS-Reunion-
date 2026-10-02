@@ -4,7 +4,7 @@
 
 1. Open the **existing reunion RSVP spreadsheet**, then **Extensions → Apps Script**.
 2. Replace `Code.gs` with this directory's `Code.gs`. Keep this project bound to the same spreadsheet.
-3. Run `getReunionPhotos_` once from the editor and authorize the added read access to Drive. The executing Google account must have access to the reunion photo folder.
+3. Authorize the added read access to Drive when Google requests it. The executing Google account must have access to the reunion photo folder. Functions ending in an underscore are hidden from the Run menu; if needed, run a temporary wrapper that calls `getReunionPhotos_`, then remove it.
 4. Use **Deploy → Manage deployments → Edit → New version → Deploy**. Keep **Execute as: Me** and the existing website-accessible web app setting. Updating the same deployment preserves the `/exec` URL already configured in Vercel as `GOOGLE_APPS_SCRIPT_URL`.
 5. Submit a test from the updated site. Verify that a new **Class Contacts** tab appears and the submitted row contains the correct information. The historical **RSVPs** tab is preserved.
 6. Visit the deployed `/exec?action=reunionPhotos` endpoint and confirm it returns `{ "ok": true, "photos": [...] }`.
@@ -27,3 +27,7 @@ Folder: https://drive.google.com/drive/folders/1-9s5h-EYjN9P47uSJYYAf_ywtwehYsaQ
 ## First-time setup (only if no deployment exists)
 
 Create a spreadsheet, open its bound Apps Script project, paste `Code.gs`, and deploy as a web app executing as the spreadsheet owner with access for website visitors. Set `GOOGLE_APPS_SCRIPT_URL` in the website environment to the resulting `/exec` URL. Never use a `NEXT_PUBLIC_` variable for the backend URL.
+
+## Verified deployment — October 2, 2026
+
+The existing `UHS 2006 RSVP Backend` deployment was updated to version 3 without changing its URL. A submission through the local website was confirmed in `Class Contacts`, then the temporary test row was cleared. The live photo endpoint returned all six current photos. The existing RSVP header `Cowboy Monkey` is retained to match historical sheet data. The website changes have not yet been published to production.
