@@ -23,9 +23,10 @@ export default function HomePage() {
               <em>Thank you.</em>
             </h1>
             <p>Here’s to everyone who made our reunion weekend special—and to the classmates we hope to see next time.</p>
+            <p>Let’s keep in touch! Fill out the form below with your current contact details and reunion preferences to help us plan our next get-together.</p>
             <div className="actions">
-              <a href="#memories" className="pill">Relive the weekend ↗</a>
-              <a href="#connect">Keep in touch →</a>
+              <a href="#connect" className="pill">Keep in touch →</a>
+              <a href="#memories">Relive the weekend ↗</a>
             </div>
           </article>
           <figure>
